@@ -5,7 +5,7 @@
 The input text (stored in a file, ‘InputText.txt’) is read in ASCII code through the program one character at a time and is stored in an array. Each stored character then calls the equivalent pen movements to write the ASCII character through x/y and pen up/down commands from text file ‘SingleStrokeFont.txt’. The extracted data is processed and converted to G-code via a function and later sent to the robot Arduino via the COM port. For each character the program is required to ensure that the writing has proportional distance. After a character is written, the pens origin is offset to the right in x or to a new line below in y. Each character occupies a 5mm maximum height and width and each new line is 10mm apart. This whole writing process is repeated for all the characters read from the text file until all characters are displayed.
 If an error occurs during the program operation, such as not being able to read a file or communicate to the Arduino via the COM PORT, the program is terminated after displaying the error to the screen prompting the user to check the error.</p>
 
-<div style="align-content:center">
+<div align="center">
     <img src="robot-arm.gif" width="500">
 </div>
 
