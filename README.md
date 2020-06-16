@@ -15,16 +15,16 @@ Once the correct port is selected, save and compile both programs in Code::Block
 
 <h3>FAQ</h3>
 <p>How do I solve error “the file could not be opened, exiting”?</p>
-<p>Check the file directory and ensure all files are in place. Namely “SingleStrokeFont.txt” and “InputText.txt” file should be in the same folder as the main.c.</p>
+<p><em>Check the file directory and ensure all files are in place. Namely “SingleStrokeFont.txt” and “InputText.txt” file should be in the same folder as the main.c.</em></p>
 
 <p>How do I solve error “Unable to open the COM port (specified in serial.h)”?</p>
-<p>Open serial.h and select suitable COM port (given in the Arduino program). Be aware in serial.h the COM port specified is one number smaller i.e. COM PORT 5, serial.h = 4. If it doesn’t work try selecting another USB port and follow the setup again.</p>
+<p><em>Open serial.h and select suitable COM port (given in the Arduino program). Be aware in serial.h the COM port specified is one number smaller i.e. COM PORT 5, serial.h = 4. If it doesn’t work try selecting another USB port and follow the setup again.</em></p>
 
 <p>How can I change the print text?</p>
-<p>The printed text is stored in the InputText.txt file. To edit it, open the text file and input desired text. Remember to save in same directory and ensure the file name has not changed.</p>
+<p><em>The printed text is stored in the InputText.txt file. To edit it, open the text file and input desired text. Remember to save in same directory and ensure the file name has not changed.</em></p>
 
 <p>How can I change the print scale?</p>
-<p>The print scale is defined at the beginning of the program. It can be modified by changing “#define SCALE 5.0” to a desired scale in millimetres; the current scale is set to 5mm. When changing it remember to write a “.0” after an integer number, i.e. 4 -> 4.0.</p>
+<p><em>The print scale is defined at the beginning of the program. It can be modified by changing “#define SCALE 5.0” to a desired scale in millimetres; the current scale is set to 5mm. When changing it remember to write a “.0” after an integer number, i.e. 4 -> 4.0.</em></p>
 
 <h2>System Manual</h2>
 
