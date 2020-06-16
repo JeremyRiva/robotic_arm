@@ -1,0 +1,8 @@
+﻿  Robot_project.cpp
+C:\Users\jeremy riva\Dropbox\Fourth Year UoN\MMME3085 Computer Engineering and Mechatronics\Robot project\Robot_project\Robot_project.cpp(113,20): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jeremy riva\Dropbox\Fourth Year UoN\MMME3085 Computer Engineering and Mechatronics\Robot project\Robot_project\Robot_project.cpp(114,20): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\jeremy riva\Dropbox\Fourth Year UoN\MMME3085 Computer Engineering and Mechatronics\Robot project\Robot_project\Robot_project.cpp(133,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jeremy riva\Dropbox\Fourth Year UoN\MMME3085 Computer Engineering and Mechatronics\Robot project\Robot_project\Robot_project.cpp(136,13): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\jeremy riva\Dropbox\Fourth Year UoN\MMME3085 Computer Engineering and Mechatronics\Robot project\Robot_project\Robot_project.cpp(196,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\jeremy riva\Dropbox\Fourth Year UoN\MMME3085 Computer Engineering and Mechatronics\Robot project\Robot_project\Robot_project.cpp(196,42): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Robot_project.vcxproj -> C:\Users\jeremy riva\Dropbox\Fourth Year UoN\MMME3085 Computer Engineering and Mechatronics\Robot project\Robot_project\Debug\Robot_project.exe
