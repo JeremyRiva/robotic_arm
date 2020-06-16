@@ -34,37 +34,44 @@ If the file opens correctly the program checks that the COM port can be opened. 
 The process is repeater for all characters, until all characters are written. After a character is written the program adds a count to the loop, once the count is reached the program exits the for loop, the COM port is closed and the program is terminated.</p>
 
 <h3>Files used in project</h3>
-<p>The files contained within the folder are as follows:
--	Main.c – file to execute program
--	Serial.c – file which contains functions used in main.c to verify communication with robot
--	Serial.h – file to set COM port correctly
--	Rs232.c – file enables robot communication, written by Teunis van Beelen
--	Rs232.h – file enables robot communication, written by Teunis van Beelen
--	SingleStrokeFont.txt – text file used to read ASCII code to written form
--	InputText.txt – data file read by program and then printed by robot
-Main.c and Serial.h are the only files required to be opened as mentioned before in the USER MANUAL (see setup). The text within InputText.txt file may be changed as desired as also mentioned in the USER MANUAL (see FAQ).</p>
+<p>The files contained within the folder are as follows:</p>
+<ul>
+    <li>Main.c – file to execute program</li>
+    <li>Serial.c – file which contains functions used in main.c to verify communication with robot</li>
+    <li>Serial.h – file to set COM port correctly</li>
+    <li>Rs232.c – file enables robot communication, written by Teunis van Beelen</li>
+    <li>Rs232.h – file enables robot communication, written by Teunis van Beelen</li>
+    <li>SingleStrokeFont.txt – text file used to read ASCII code to written form</li>
+    <li>InputText.txt – data file read by program and then printed by robot Main.c and Serial.h are the only files required to be opened as mentioned before in the USER MANUAL (see setup). The text within InputText.txt file may be changed as desired as also mentioned in the USER MANUAL (see FAQ).</li>
+</ul>
 
 <h3>Data storage for Key items</h3>
 <p>The first data storage occurs for both the text files in order to allow the access throughout the code. The input text read from the InputText.txt file (calling the ReadFile() function) is stored in the textBuffer[] array. Similarly the SingleStrokeFont.txt data is stored in the columns[] structure. The textBuffer[] array is called within the WriteAsciiCharacters() function for each character using a for loop. The columns[] structure is called both in the WriteAsciiCharacters() function as well as the ASCIItoGcode() function.
 In addition to the stored text files in the program, the code makes use of pen positioning. The pen position is stored with the use of pointers for x and y. For the pen positioning, the initial position is set to zero for the x and y position. For every character read, the pen is required to store a character offset in the x-direction ‘returnedX’, to allow proportional distance between each character. After a character is written, ‘x’ shifts by the offset (i.e. x = x + returnedX*(5.0/18.0)). When the character reads a new line (‘Enter’ = Ascii ‘10’) the x direction pointer is reset to zero while the ‘y’ count is offset by 10mm downwards (i.e. x = 0.0, y = y + returnedY*(5.0/18.0)).</p>
 
 <h3>Planned key functions</h3>
-<p>The program makes use of multiple functions within “int main ()” to run as shown below:
-// function that opens and reads files
-int ReadFile(struct ColumnVariables* cols, char Textbuffer[SIZE]);
-The function reads the files InputText.txt and SingleStrokeFont.txt and returns 0 if no problems are encountered otherwise it returns -1 while displaying an error.
-// function that converts ASCII code to G-code
-void ASCIItoGcode(float x, float y, int anteA, int anteB, int anteC, int postA, int postB, int postC);
-The function writes to G-code by comparing the third column of the previous line (ante C) with the third column of the current line (postC) in order to understand if the pen position has changed. Then in writes in G-code by adding the x and y pointers to the current value in x and y (respectively postA and postB). The function itself doesn’t return anything and is called within the WriteAsciiCharacters() function.
-// function finds character from Ascii code
-void WriteAsciiCharacters(struct ColumnVariables* columns, char Textbuffer[SIZE], int n, float* x, float* y);
-The function is called within the main function and contains most of the logic of the program. The function compares the columns[] value to the Textbuffer[] value and calls the ASCIItoGcode() function. After the function is called the x and y pointers are updated the function is exited. This function does not return anything to main().
-// function to initialise robot for writing
-void InitialiseRobot(void);
-The function initialises the robot for writing. In this function there are no inputs or outputs.
-// Send the data to the robot - note in 'PC' mode you need to hit space twice
-void SendCommands(char* buffer);
-Again, this function does not return anything. The function is used to write to the robot and ensure the robot reads it with enough time.</p>
+<p>The program makes use of multiple functions within “int main ()” to run as shown below:</p>
+
+<p>// function that opens and reads files</p>
+<p><em>int ReadFile(struct ColumnVariables* cols, char Textbuffer[SIZE]);</em></p>
+<p>The function reads the files InputText.txt and SingleStrokeFont.txt and returns 0 if no problems are encountered otherwise it returns -1 while displaying an error.</p>
+
+<p>// function that converts ASCII code to G-code</p>
+<p><em>void ASCIItoGcode(float x, float y, int anteA, int anteB, int anteC, int postA, int postB, int postC);</em></p>
+<p>The function writes to G-code by comparing the third column of the previous line (ante C) with the third column of the current line (postC) in order to understand if the pen position has changed. Then in writes in G-code by adding the x and y pointers to the current value in x and y (respectively postA and postB). The function itself doesn’t return anything and is called within the WriteAsciiCharacters() function.</p>
+
+<p>// function finds character from Ascii code</p>
+<p><em>void WriteAsciiCharacters(struct ColumnVariables* columns, char Textbuffer[SIZE], int n, float* x, float* y);</em></p>
+<p>The function is called within the main function and contains most of the logic of the program. The function compares the columns[] value to the Textbuffer[] value and calls the ASCIItoGcode() function. After the function is called the x and y pointers are updated the function is exited. This function does not return anything to main().</p>
+
+<p>// function to initialise robot for writing</p>
+<p><em>void InitialiseRobot(void);</em></p>
+<p>The function initialises the robot for writing. In this function there are no inputs or outputs.</p>
+
+<p>// Send the data to the robot - note in 'PC' mode you need to hit space twice</p>
+<p><em>void SendCommands(char* buffer);</em></p>
+<p>Again, this function does not return anything. The function is used to write to the robot and ensure the robot reads it with enough time.</p>
+
 
 <h2>Testing Data</h2>
 <p>The program tests for errors in opening files within the ReadFile() function. If for example the file “SingleStrokeFont.txt” cannot be opened, an error is displayed on the screen for the user, prompting the user to check the directory. After displaying the error, it then proceeds to close the file and the program is terminated. Similarly is the case for “InputText.txt”.
