@@ -42,7 +42,7 @@ The process is repeater for all characters, until all characters are written. Af
 <ul>
     <li><code>Main.c</code> – file to execute program</li>
     <li><code>Serial.c</code> – file which contains functions used in main.c to verify communication with robot</li>
-    <li><code>Serial.h – file to set COM port correctly</li>
+    <li><code>Serial.h</code> – file to set COM port correctly</li>
     <li><code>Rs232.c</code> – file enables robot communication, written by Teunis van Beelen</li>
     <li><code>Rs232.h</code> – file enables robot communication, written by Teunis van Beelen</li>
     <li><code>SingleStrokeFont.txt</code> – text file used to read ASCII code to written form</li>
