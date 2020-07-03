@@ -6,7 +6,7 @@
 #define SERIAL_H_INCLUDED
 
 
-#define cport_nr    5                  /* COM number minus 1 */
+#define cport_nr    4                  /* COM number minus 1 */
 #define bdrate      115200              /* 115200  */
 
 int PrintBuffer (char *buffer);                 //JIB: Needed to match the function
