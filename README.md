@@ -61,19 +61,19 @@ In addition to the stored text files in the program, the code makes use of pen p
 <p>The function reads the files InputText.txt and SingleStrokeFont.txt and returns 0 if no problems are encountered otherwise it returns -1 while displaying an error.</p>
 
 <p>// function that converts ASCII code to G-code</p>
-<code><em>void ASCIItoGcode(float x, float y, int anteA, int anteB, int anteC, int postA, int postB, int postC);</code></p>
+<code><em>void ASCIItoGcode(float x, float y, int anteA, int anteB, int anteC, int postA, int postB, int postC);</em></code></p>
 <p>The function writes to G-code by comparing the third column of the previous line (ante C) with the third column of the current line (postC) in order to understand if the pen position has changed. Then in writes in G-code by adding the x and y pointers to the current value in x and y (respectively postA and postB). The function itself doesn’t return anything and is called within the WriteAsciiCharacters() function.</p>
 
 <p>// function finds character from Ascii code</p>
-<code><em>void WriteAsciiCharacters(struct ColumnVariables* columns, char Textbuffer[SIZE], int n, float* x, float* y);</code></p>
+<code><em>void WriteAsciiCharacters(struct ColumnVariables* columns, char Textbuffer[SIZE], int n, float* x, float* y);</em></code></p>
 <p>The function is called within the main function and contains most of the logic of the program. The function compares the columns[] value to the Textbuffer[] value and calls the ASCIItoGcode() function. After the function is called the x and y pointers are updated the function is exited. This function does not return anything to main().</p>
 
 <p>// function to initialise robot for writing</p>
-<code><em>void InitialiseRobot(void);</code></p>
+<code><em>void InitialiseRobot(void);</em></code></p>
 <p>The function initialises the robot for writing. In this function there are no inputs or outputs.</p>
 
 <p>// Send the data to the robot - note in 'PC' mode you need to hit space twice</p>
-<code><em>void SendCommands(char* buffer);</code></p>
+<code><em>void SendCommands(char* buffer);</em></code></p>
 <p>Again, this function does not return anything. The function is used to write to the robot and ensure the robot reads it with enough time.</p>
 
 
