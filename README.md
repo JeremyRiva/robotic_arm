@@ -40,7 +40,7 @@ The process is repeater for all characters, until all characters are written. Af
 <h3>Files used in project</h3>
 <p>The files contained within the folder are as follows:</p>
 <ul>
-    <li>Main.c – file to execute program</li>
+    <li><code>Main.c<code> – file to execute program</li>
     <li>Serial.c – file which contains functions used in main.c to verify communication with robot</li>
     <li>Serial.h – file to set COM port correctly</li>
     <li>Rs232.c – file enables robot communication, written by Teunis van Beelen</li>
