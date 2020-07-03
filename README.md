@@ -28,7 +28,7 @@ Once the correct port is selected, save and compile both programs in Code::Block
 <p><em>The printed text is stored in the InputText.txt file. To edit it, open the text file and input desired text. Remember to save in same directory and ensure the file name has not changed.</em></p>
 
 <p>How can I change the print scale?</p>
-<p><em>The print scale is defined at the beginning of the program. It can be modified by changing “#define SCALE 5.0” to a desired scale in millimetres; the current scale is set to 5mm. When changing it remember to write a “.0” after an integer number, i.e. 4 -> 4.0.</em></p>
+<p><em>The print scale is defined at the beginning of the program. It can be modified by changing <code>#define SCALE 5.0</code> to a desired scale in millimetres; the current scale is set to 5mm. When changing it remember to write a “.0” after an integer number, i.e. 4 -> 4.0.</em></p>
 
 <h2>System Manual</h2>
 
@@ -41,12 +41,12 @@ The process is repeater for all characters, until all characters are written. Af
 <p>The files contained within the folder are as follows:</p>
 <ul>
     <li><code>Main.c</code> – file to execute program</li>
-    <li>Serial.c – file which contains functions used in main.c to verify communication with robot</li>
-    <li>Serial.h – file to set COM port correctly</li>
-    <li>Rs232.c – file enables robot communication, written by Teunis van Beelen</li>
-    <li>Rs232.h – file enables robot communication, written by Teunis van Beelen</li>
-    <li>SingleStrokeFont.txt – text file used to read ASCII code to written form</li>
-    <li>InputText.txt – data file read by program and then printed by robot Main.c and Serial.h are the only files required to be opened as mentioned before in the USER MANUAL (see setup). The text within InputText.txt file may be changed as desired as also mentioned in the USER MANUAL (see FAQ).</li>
+    <li><code>Serial.c</code> – file which contains functions used in main.c to verify communication with robot</li>
+    <li><code>Serial.h – file to set COM port correctly</li>
+    <li><code>Rs232.c</code> – file enables robot communication, written by Teunis van Beelen</li>
+    <li><code>Rs232.h</code> – file enables robot communication, written by Teunis van Beelen</li>
+    <li><code>SingleStrokeFont.txt</code> – text file used to read ASCII code to written form</li>
+    <li><code>InputText.txt</code> – data file read by program and then printed by robot Main.c and Serial.h are the only files required to be opened as mentioned before in the USER MANUAL (see setup). The text within InputText.txt file may be changed as desired as also mentioned in the USER MANUAL (see FAQ).</li>
 </ul>
 
 <h3>Data storage for Key items</h3>
@@ -57,23 +57,23 @@ In addition to the stored text files in the program, the code makes use of pen p
 <p>The program makes use of multiple functions within “int main ()” to run as shown below:</p>
 
 <p>// function that opens and reads files</p>
-<p><em>int ReadFile(struct ColumnVariables* cols, char Textbuffer[SIZE]);</em></p>
+<code><em>int ReadFile(struct ColumnVariables* cols, char Textbuffer[SIZE]);</em></code>
 <p>The function reads the files InputText.txt and SingleStrokeFont.txt and returns 0 if no problems are encountered otherwise it returns -1 while displaying an error.</p>
 
 <p>// function that converts ASCII code to G-code</p>
-<p><em>void ASCIItoGcode(float x, float y, int anteA, int anteB, int anteC, int postA, int postB, int postC);</em></p>
+<code><em>void ASCIItoGcode(float x, float y, int anteA, int anteB, int anteC, int postA, int postB, int postC);</code></p>
 <p>The function writes to G-code by comparing the third column of the previous line (ante C) with the third column of the current line (postC) in order to understand if the pen position has changed. Then in writes in G-code by adding the x and y pointers to the current value in x and y (respectively postA and postB). The function itself doesn’t return anything and is called within the WriteAsciiCharacters() function.</p>
 
 <p>// function finds character from Ascii code</p>
-<p><em>void WriteAsciiCharacters(struct ColumnVariables* columns, char Textbuffer[SIZE], int n, float* x, float* y);</em></p>
+<code><em>void WriteAsciiCharacters(struct ColumnVariables* columns, char Textbuffer[SIZE], int n, float* x, float* y);</code></p>
 <p>The function is called within the main function and contains most of the logic of the program. The function compares the columns[] value to the Textbuffer[] value and calls the ASCIItoGcode() function. After the function is called the x and y pointers are updated the function is exited. This function does not return anything to main().</p>
 
 <p>// function to initialise robot for writing</p>
-<p><em>void InitialiseRobot(void);</em></p>
+<code><em>void InitialiseRobot(void);</code></p>
 <p>The function initialises the robot for writing. In this function there are no inputs or outputs.</p>
 
 <p>// Send the data to the robot - note in 'PC' mode you need to hit space twice</p>
-<p><em>void SendCommands(char* buffer);</em></p>
+<code><em>void SendCommands(char* buffer);</code></p>
 <p>Again, this function does not return anything. The function is used to write to the robot and ensure the robot reads it with enough time.</p>
 
 
