@@ -1,5 +1,5 @@
 # Robotic arm
-![University Of Nottingham](https://img.shields.io/badge/UoN-MMME3085-blue.svg?logo=data:nottingham-university-logo/png)
+![University Of Nottingham](https://img.shields.io/badge/UoN-MMME3085-blue.svg?logo=data:nottingham-university-logo.png/png;base64)
 
 <h2>Outline</h2>
 <p>The task involves writing a program that commands a robot to write text in the x and y plane. The program generated is designed to read text from a file, and consequently display the text on a plane by moving the writing arm up/down, left/right. 
