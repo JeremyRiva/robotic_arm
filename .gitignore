@@ -1,8 +1,5 @@
-echo "bin/" >> .gitignore
-echo "obj/" >> .gitignore
-
-echo "robot_proj.cbp" >> .gitignore
-echo "robot_proj.depend" >> .gitignore
-echo "robot_proj.layout" >> .gitignore
-
-echo "robot-arm.gif" >> .gitignore
+/bin
+/obj
+robot_proj.cbp
+robot_proj.depend
+robot_proj.layout
