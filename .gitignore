@@ -1,5 +1,5 @@
 /bin
 /obj
-robot_proj.cbp
-robot_proj.depend
-robot_proj.layout
+*.cbp
+*.depend
+*.layout
