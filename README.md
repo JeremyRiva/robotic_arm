@@ -1,4 +1,4 @@
-# Robotic arm
+# Writing robot
 ![University Of Nottingham](https://img.shields.io/badge/University_of_Nottingham-MMME3085-blue.svg?)
 
 <h2>Outline</h2>
